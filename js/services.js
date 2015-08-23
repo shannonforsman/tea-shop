@@ -16,7 +16,6 @@ app.factory('Cart', function () {
   var shoppingCart = {}
   shoppingCart['tea'] = []
   shoppingCart.addTea = function (teaObj, quantity) {
-    console.log(quantity)
     quantity = parseInt(quantity, 10)
     var teaIndex = shoppingCart['tea'].map(function (obj) {return obj['name']}).indexOf(teaObj['name'])
     if (teaIndex === -1) {

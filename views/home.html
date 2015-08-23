@@ -12,10 +12,16 @@
     <option value="spring">spring</option>
   </select>
 </h4>
+<h4>Search by price
+  <select name="" id="" ng-model="teaPrice" ng-init="teaPrice = 'price'" >
+    <option value="price">lowest</option>
+    <option value="-price">highest</option>
+  </select>
+</h4>
 <label>Search by name: <input type="text" ng-model="name"></label>
-<button>Checkout: cart empty</button>
+<button>Checkout: {{teasInCart.length ? 'Cart (' + teasInCart.length + ')' : 'Cart Empty'}}</button>
 <table>
-  <tr ng-repeat='tea in teaArr | filter:categorySearch | filter:name'>
+  <tr ng-repeat='tea in teaArr | filter:categorySearch | filter:name | orderBy:teaPrice'>
     <td><img src="{{tea.imageUrl}}" alt=""></td>
     <td><h2>{{tea.name}}</h2><div>{{tea.ingredients}}</div>
       Categories:
@@ -27,6 +33,7 @@
       <div class="scale">
         <i class="fa fa-coffee" style="display: inline-block; margin-left: {{tea.caffeineScale}}px"></i>
       </div>
+    </td>
     <td>{{tea.price/100 | currency}}</td>
     <td>Quantity
       <select name="" id="" ng-model='quantity'>

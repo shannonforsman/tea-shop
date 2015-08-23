@@ -7,6 +7,4 @@ app.filter('teaSum', function () {
     }, 0)
     return total;
   }
-
-
 })
