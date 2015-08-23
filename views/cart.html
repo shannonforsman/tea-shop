@@ -1,0 +1,25 @@
+<h2>Cart</h2>
+<h3>Order Total: {{teas | teaSum | currency}}</h3>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="tea in teas">
+    <td>{{tea.name}}
+    {{tea.caffeineScale}}
+    </td>
+    <td>
+      <input type="number" ng-show="editQuantity" ng-model="tea.quantity">
+      <div ng-hide="editQuantity">{{tea.quantity}}</div>
+    </td>
+    <td>{{tea.price/100 * tea.quantity | currency}}</td>
+    <td>
+      <button ng-hide="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'>Edit</button>
+      <button ng-show="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'>Save</button>
+      <button ng-click='remove(tea)'>Remove</button>
+    </td>
+  </tr>
+</table>

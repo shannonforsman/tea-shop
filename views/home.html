@@ -1,0 +1,42 @@
+<h4>Search by Category
+  <select name="" id="" ng-model='categorySearch'>
+    <option value="dark">dark</option>
+    <option value="cold">cold</option>
+    <option value="awesome">awesome</option>
+    <option value="dry">dry</option>
+    <option value="hot">hot</option>
+    <option value="summer">summer</option>
+    <option value="lucid">lucid</option>
+    <option value="warm">warm</option>
+    <option value="winter">winter</option>
+    <option value="spring">spring</option>
+  </select>
+</h4>
+<label>Search by name: <input type="text" ng-model="name"></label>
+<button>Checkout: cart empty</button>
+<table>
+  <tr ng-repeat='tea in teaArr | filter:categorySearch | filter:name'>
+    <td><img src="{{tea.imageUrl}}" alt=""></td>
+    <td><h2>{{tea.name}}</h2><div>{{tea.ingredients}}</div>
+      Categories:
+      <span class="category" ng-repeat='category in tea.categories'>
+        {{category}},
+      </span>
+      In Stock? <i ng-class='{"fa fa-check": tea.inStock, "fa fa-times": !tea.inStock}'><br>
+      Caffeine Scale
+      <div class="scale">
+        <i class="fa fa-coffee" style="display: inline-block; margin-left: {{tea.caffeineScale}}px"></i>
+      </div>
+    <td>{{tea.price/100 | currency}}</td>
+    <td>Quantity
+      <select name="" id="" ng-model='quantity'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </td>
+    <td><button ng-click='addToCart(tea, quantity)'>Add to Cart</button></td>
+  </tr>
+</table>
