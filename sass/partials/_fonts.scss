@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,100,300,700);
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+
+body {
+  font-family: 'lato';
+  color: $grey;
+}
+
+h1 {
+  font-family: 'lato';
+  font-size: 32px;
+  color: $white;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  border: 1px solid $white;
+  padding: 10px;
+}
+
+h2 {
+  font-family: 'lato';
+  font-size: 32px;
+  margin-bottom: 32px;
+  color: $yellow;
+  letter-spacing: 4px;
+  font-weight: 300;
+  width: 50%;
+  float: left;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+h4 {
+  display: inline-block;
+  margin-right: 16px;
+  font-weight: 300;
+}
+
+p {
+  margin-bottom: 8px;
+  line-height: 1.3em;
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 400;
+}
+
+input {
+  padding-left: 8px;
+  border:  1px solid #ddd;
+  float: right;
+}
+
+select {
+  border: 1px solid #ddd;
+}
+
+.fa-check {
+  color: green;
+}

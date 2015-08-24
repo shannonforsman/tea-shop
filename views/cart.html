@@ -1,23 +1,40 @@
 <h2>Cart</h2>
 <h3>Order Total: {{teas | teaSum | currency}}</h3>
-<table>
-  <tr>
+<table ng-show='teas.length > 0'>
+  <tr class='table-head'>
+    <th>Tea</th>
     <th>Product</th>
     <th>Quantity</th>
     <th>Subtotal</th>
     <th></th>
   </tr>
   <tr ng-repeat="tea in teas">
-    <td>{{tea.name}}
-    {{tea.caffeineScale}}
+    <td><img src="{{tea.imageUrl}}" alt=""></td>
+    <td>
+      <h3>{{tea.name}}</h3>
+      <p><strong>ingredients: </strong>{{tea.ingredients}}</p>
+      <p><strong>Categories: </strong>
+        <span class="category" ng-repeat='category in tea.categories'>
+          {{category}},
+        </span>
+      </p>
+      <p><strong>In Stock?</strong>
+        <i ng-class='{"fa fa-check": tea.inStock, "fa fa-times": !tea.inStock}'></i>
+      </p>
+      <p>
+        <strong>Caffeine Level:</strong> {{tea.caffeineScale}}
+      </p>
+      <div class="scale">
+        <div class="scale-icon" style="display: inline-block; margin-left: {{tea.caffeineScale * .67}}px"></div>
+      </div>
     </td>
     <td>
       <input type="number" ng-show="editQuantity" ng-model="tea.quantity">
       <div ng-hide="editQuantity">{{tea.quantity}}</div>
     </td>
     <td>{{tea.price/100 * tea.quantity | currency}}</td>
-    <td>
-      <button ng-hide="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'>Edit</button>
+    <td class='edit'>
+      <button class="remove" ng-hide="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'><i class="fa fa-pencil-square-o"></i> Edit</button>
       <button ng-show="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'>Save</button>
       <button ng-click='remove(tea)'>Remove</button>
     </td>

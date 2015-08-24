@@ -1,13 +1,11 @@
 app.controller('HomeController', ['$scope', 'TeaList', 'Cart', function ($scope, TeaList, Cart) {
   $scope.quantity = 1;
   $scope.teasInCart = Cart.tea
-  // console.log(Cart.tea)
-  // $scope.CartItems = Cart.tea.length
-  // console.log($scope.CartItems)
   TeaList.get().then(function (teas) {
     $scope.teaArr = teas
   })
   $scope.addToCart = function (obj, quantity) {
+    console.log(quantity)
     Cart.addTea(obj, quantity)
   }
 }])

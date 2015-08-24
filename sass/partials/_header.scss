@@ -1,0 +1,18 @@
+header {
+  background-image: url('/images/tea-background.jpg');
+  background-attachment: fixed;
+  background-position: center -80px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 300px;
+  h1 {
+    top:100px;
+    position: absolute;
+  }
+  .color {
+    position: fixed;
+    height: 300px;
+    width: 100%;
+    background: $muted-green;
+  }
+}

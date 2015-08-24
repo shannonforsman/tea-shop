@@ -1,0 +1,13 @@
+button {
+  background: $blue;
+  border: none;
+  padding: 10px;
+  font-size: 12px;
+  color: $white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button.cart {
+  float: right;
+}

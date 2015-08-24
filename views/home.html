@@ -1,41 +1,62 @@
-<h4>Search by Category
-  <select name="" id="" ng-model='categorySearch'>
-    <option value="dark">dark</option>
-    <option value="cold">cold</option>
-    <option value="awesome">awesome</option>
-    <option value="dry">dry</option>
-    <option value="hot">hot</option>
-    <option value="summer">summer</option>
-    <option value="lucid">lucid</option>
-    <option value="warm">warm</option>
-    <option value="winter">winter</option>
-    <option value="spring">spring</option>
-  </select>
-</h4>
-<h4>Search by price
-  <select name="" id="" ng-model="teaPrice" ng-init="teaPrice = 'price'" >
-    <option value="price">lowest</option>
-    <option value="-price">highest</option>
-  </select>
-</h4>
-<label>Search by name: <input type="text" ng-model="name"></label>
-<button>Checkout: {{teasInCart.length ? 'Cart (' + teasInCart.length + ')' : 'Cart Empty'}}</button>
+<h2>Our Teas</h2>
+<a href="#/cart">
+  <button class="cart"><i class="fa fa-shopping-cart"> </i> {{teasInCart.length ? 'Cart (' + teasInCart.length + ')' : 'Cart Empty'}}
+  </button>
+</a>
+<div class="filter group">
+  <h4>Category:
+    <select name="" id="" ng-model='categorySearch'>
+      <option value="">all</option>
+      <option value="dark">dark</option>
+      <option value="cold">cold</option>
+      <option value="awesome">awesome</option>
+      <option value="dry">dry</option>
+      <option value="hot">hot</option>
+      <option value="summer">summer</option>
+      <option value="lucid">lucid</option>
+      <option value="warm">warm</option>
+      <option value="winter">winter</option>
+      <option value="spring">spring</option>
+    </select>
+  </h4>
+  <h4>Price:
+    <select name="" id="" ng-model="teaPrice" ng-init="teaPrice = 'price'" >
+      <option value="price">lowest</option>
+      <option value="-price">highest</option>
+    </select>
+  </h4>
+  <label><input type="text" ng-model="name" placeholder="search"></label>
+
+</div>
 <table>
-  <tr ng-repeat='tea in teaArr | filter:categorySearch | filter:name | orderBy:teaPrice'>
+  <tr class='table-head'>
+    <th>Tea</th>
+    <th>Product Information</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat='tea in teaArr | filter: {categories: categorySearch} | filter:name | orderBy:teaPrice'>
     <td><img src="{{tea.imageUrl}}" alt=""></td>
-    <td><h2>{{tea.name}}</h2><div>{{tea.ingredients}}</div>
-      Categories:
-      <span class="category" ng-repeat='category in tea.categories'>
-        {{category}},
-      </span>
-      In Stock? <i ng-class='{"fa fa-check": tea.inStock, "fa fa-times": !tea.inStock}'><br>
-      Caffeine Scale
+    <td><h3>{{tea.name}}</h3>
+      <p><strong>ingredients: </strong>{{tea.ingredients}}</p>
+      <p><strong>Categories: </strong>
+        <span class="category" ng-repeat='category in tea.categories'>
+          {{category}},
+        </span>
+      </p>
+      <p><strong>In Stock?</strong>
+        <i ng-class='{"fa fa-check": tea.inStock, "fa fa-times": !tea.inStock}'></i>
+      </p>
+      <p>
+        <strong>Caffeine Level:</strong> {{tea.caffeineScale}}
+      </p>
       <div class="scale">
-        <i class="fa fa-coffee" style="display: inline-block; margin-left: {{tea.caffeineScale}}px"></i>
+        <div class="scale-icon" style="display: inline-block; margin-left: {{tea.caffeineScale * .67}}px"></div>
       </div>
     </td>
     <td>{{tea.price/100 | currency}}</td>
-    <td>Quantity
+    <td>
       <select name="" id="" ng-model='quantity'>
         <option value="1">1</option>
         <option value="2">2</option>
