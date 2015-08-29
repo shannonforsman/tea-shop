@@ -34,8 +34,8 @@
     </td>
     <td>{{tea.price/100 * tea.quantity | currency}}</td>
     <td class='edit'>
-      <button class="remove" ng-hide="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'><i class="fa fa-pencil-square-o"></i> Edit</button>
-      <button ng-show="editQuantity" ng-click='editQuantity = ! editQuantity; updateTotal()'>Save</button>
+      <button class="remove" ng-hide="editQuantity" ng-click='editQuantity = ! editQuantity'><i class="fa fa-pencil-square-o"></i> Edit</button>
+      <button ng-show="editQuantity" ng-click='editQuantity = ! editQuantity'>Save</button>
       <button ng-click='remove(tea)'>Remove</button>
     </td>
   </tr>

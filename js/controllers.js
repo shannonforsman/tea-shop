@@ -5,7 +5,6 @@ app.controller('HomeController', ['$scope', 'TeaList', 'Cart', function ($scope,
     $scope.teaArr = teas
   })
   $scope.addToCart = function (obj, quantity) {
-    console.log(quantity)
     Cart.addTea(obj, quantity)
   }
 }])

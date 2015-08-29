@@ -2,13 +2,14 @@ table {
   text-align: left;
   background: $white;
   width: 100%;
+  border-collapse: collapse;
   button {
     background: $yellow;
   }
 }
 
 td {
-  border: 1px solid #f6f6f6;
+  border: 1px solid #eee;
   vertical-align: top;
   padding: 8px;
 }

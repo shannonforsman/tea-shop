@@ -21,7 +21,7 @@ h2 {
   font-family: 'lato';
   font-size: 32px;
   margin-bottom: 32px;
-  color: $yellow;
+  color: $grey;
   letter-spacing: 4px;
   font-weight: 300;
   width: 50%;
@@ -62,4 +62,8 @@ select {
 
 .fa-check {
   color: green;
+}
+
+.fa-times {
+  color: red;
 }
