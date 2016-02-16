@@ -31,3 +31,5 @@ app.factory('Cart', function () {
   }
   return shoppingCart
 })
+
+//make one s

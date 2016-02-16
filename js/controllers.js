@@ -16,3 +16,4 @@ app.controller('CartController', ['$scope', 'Cart', function ($scope, Cart) {
     $scope.tea = Cart.removeTea(key)
   }
 }])
+  
